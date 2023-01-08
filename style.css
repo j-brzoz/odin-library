@@ -1,5 +1,41 @@
+:root.dark {
+    --color-background: black;
+    --color-text: white;
+}
+
+:root.light {
+    --color-background: white;
+    --color-text: black;
+}
+
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
 }
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    padding-top: 150px;
+}
+
+.modalContent {
+    background-color: white;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: 60%;
+  }
