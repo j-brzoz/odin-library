@@ -11,16 +11,33 @@
 <body>
     <div class="header">
         Library
+        <button class="themeChange">theme</button>
+        <button class="logIn">Log in</button>
     </div>
     <div class="main" id="main">
         <button id="addBookBtn">+ Add book</button>
-        <button class="themeChange">theme</button>
     </div>
     <div class="footer">
         <p>Project from The Odin Project course by Jan Brzozowski</p>
     </div>
     <div class="modal" id="addBookModal">
-        <div class="modalContent">Test</div>
+        <div class="modalContent">
+            <form action="" class="inputs" id="newBookForm">
+                <label for="title">Title
+                    <input type="text" id="title" name="title" placeholder="Title" required minlength="2" maxlength="80">
+                </label>
+                <label for="author">Author
+                    <input type="text" id="author" name="author" placeholder="Author" required minlength="2" maxlength="60">
+                </label>
+                <label for="pages">Pages
+                    <input type="number" id="pages" name="pages" placeholder="Pages" required>
+                </label>
+                <label for="readStatus">Have you read it?
+                    <input type="checkbox" id="readStatus" name="readStatus">
+                </label>
+                <button type="submit" form="newBookForm">Submit</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
