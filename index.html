@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +10,15 @@
 </head>
 <body>
     <div class="header">
-        Library
-        <button class="themeChange">theme</button>
-        <button class="logIn">Log in</button>
+        <p>Library</p>
+        <div class="buttons">
+            <button class="themeChange">Theme</button>
+            <button class="logIn">Log in</button>
+        </div>
     </div>
     <div class="main" id="main">
-        <button id="addBookBtn">+ Add book</button>
+        <button class="addBookBtn" id="addBookBtn">+ Add book</button>
+        <div class="cards" id="cards"></div>
     </div>
     <div class="footer">
         <p>Project from The Odin Project course by Jan Brzozowski</p>
@@ -30,7 +33,7 @@
                     <input type="text" id="author" name="author" placeholder="Author" required minlength="2" maxlength="60">
                 </label>
                 <label for="pages">Pages
-                    <input type="number" id="pages" name="pages" placeholder="Pages" required>
+                    <input type="number" id="pages" name="pages" placeholder="Pages" required min="1" max="99999">
                 </label>
                 <label for="readStatus">Have you read it?
                     <input type="checkbox" id="readStatus" name="readStatus">
