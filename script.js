@@ -24,14 +24,15 @@ function displayLibrary() {
   
   const bookTitle = document.createElement("p");
   bookTitle.textContent = myLibrary[myLibrary.length-1].title;
+  bookTitle.classList.add("bookTitle");
   bookCard.appendChild(bookTitle);
 
   const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = myLibrary[myLibrary.length-1].author;
+  bookAuthor.textContent = `by ${  myLibrary[myLibrary.length-1].author}`;
   bookCard.appendChild(bookAuthor);
 
   const bookPages = document.createElement("p");
-  bookPages.textContent = myLibrary[myLibrary.length-1].pages;
+  bookPages.textContent = myLibrary[myLibrary.length-1].pages > 1 ? `${myLibrary[myLibrary.length-1].pages  } pages` : `${myLibrary[myLibrary.length-1].pages  } page`;
   bookCard.appendChild(bookPages);
 
   // read button
@@ -63,7 +64,8 @@ function displayLibrary() {
   }
   
   bookDelete.addEventListener("click", deleteBook);
-  bookDelete.textContent = "DELETE"
+  bookDelete.textContent = "DELETE";
+  bookDelete.classList.add("deleteBtn");
   bookCard.appendChild(bookDelete);
 
   cards.appendChild(bookCard);
