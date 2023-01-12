@@ -3,7 +3,7 @@ const myLibrary = [];
 
 // book constructor
 function Book(title, author, pages, status) {
-    this.title = title;
+  this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = status;
@@ -15,18 +15,63 @@ function Book(title, author, pages, status) {
 
 // displaying books
 function displayLibrary() {
-  const main = document.querySelector("#main");
+  const cards = document.querySelector("#cards");
+
+  // main info
   const bookCard = document.createElement("div");
-  bookCard.classList.add("bookCard");
-  bookCard.setAttribute("id", `bookCard${  myLibrary.length}`);
-  main.appendChild(bookCard);
-  bookCard.textContent = myLibrary[myLibrary.length-1].info();
+  bookCard.classList.add("card");
+  bookCard.setAttribute("id", `bookCard${  myLibrary.length}`)
+  
+  const bookTitle = document.createElement("p");
+  bookTitle.textContent = myLibrary[myLibrary.length-1].title;
+  bookCard.appendChild(bookTitle);
+
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = myLibrary[myLibrary.length-1].author;
+  bookCard.appendChild(bookAuthor);
+
+  const bookPages = document.createElement("p");
+  bookPages.textContent = myLibrary[myLibrary.length-1].pages;
+  bookCard.appendChild(bookPages);
+
+  // read button
+  const bookStatus = document.createElement("button");
+
+  function changeStatus() {
+    myLibrary[myLibrary.length-1].status = myLibrary[myLibrary.length-1].status === "on" ? "" : "on";
+    bookStatus.className = myLibrary[myLibrary.length-1].status === "on" ? "read" : "notRead";
+    bookStatus.textContent = myLibrary[myLibrary.length-1].status === "on" ? "READ" : "NOT READ";
+  };
+  
+  if(myLibrary[myLibrary.length-1].status === "on") {
+    bookStatus.classList.add("read");
+    bookStatus.textContent = "READ";
+  }
+  else {
+    bookStatus.classList.add("notRead");
+    bookStatus.textContent = "NOT READ";
+  }
+  bookStatus.addEventListener("click", changeStatus);
+  bookCard.appendChild(bookStatus);
+
+  // delete button
+  const bookDelete = document.createElement("button");
+
+  function deleteBook() {
+    myLibrary.splice(myLibrary.length-1, 1);
+    bookCard.remove();
+  }
+  
+  bookDelete.addEventListener("click", deleteBook);
+  bookDelete.textContent = "DELETE"
+  bookCard.appendChild(bookDelete);
+
+  cards.appendChild(bookCard);
 }
 
 // adding books to library
 function addBookToLibrary(book) {
     myLibrary.push(book);
-    console.log(book);
     displayLibrary();
 }
 
@@ -66,10 +111,10 @@ formElem.addEventListener("submit", (e) => {
   e.preventDefault();
   // eslint-disable-next-line no-new
   new FormData(formElem);
+  addBookModal.style.display = "none";
 });
 
 formElem.addEventListener("formdata", (e) => {
-  console.log("test");
   let bookTitle;
   let bookAuthor;
   let bookPages;
