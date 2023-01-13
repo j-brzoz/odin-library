@@ -13,6 +13,21 @@ function Book(title, author, pages, status) {
   };
 }
 
+function makeStarInputs(i, stars) {
+  const star = document.createElement("input");
+  star.setAttribute("type", "radio");
+  star.setAttribute("id", `rating${  i}`);
+  star.setAttribute("name", "rating");
+  star.setAttribute("value", i);
+  stars.appendChild(star);
+  const starLabel = document.createElement("label");
+  starLabel.setAttribute("for", `rating${i}`);
+  if (i % 2 !== 0) {
+    starLabel.classList.add("half");
+  }
+  stars.appendChild(starLabel);
+}
+
 // displaying books
 function displayLibrary() {
   const cards = document.querySelector("#cards");
@@ -34,6 +49,14 @@ function displayLibrary() {
   const bookPages = document.createElement("p");
   bookPages.textContent = myLibrary[myLibrary.length-1].pages > 1 ? `${myLibrary[myLibrary.length-1].pages  } pages` : `${myLibrary[myLibrary.length-1].pages  } page`;
   bookCard.appendChild(bookPages);
+
+  // rating stars
+  const stars = document.createElement("div");
+  stars.classList.add("rate");
+  for(let i = 10; i >= 1; i-=1){
+    makeStarInputs(i, stars);
+  }
+  bookCard.appendChild(stars);
 
   // read button
   const bookStatus = document.createElement("button");

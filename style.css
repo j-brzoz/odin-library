@@ -125,6 +125,7 @@ body {
 
 .card .bookTitle {
     font-weight: 600;
+    font-size: 30px;
 }
 
 .card button {
@@ -234,6 +235,47 @@ form button {
 form button:hover {
     background-color: rgb(120, 176, 105);   
 }
+
+.rate {
+    display: inline-block;
+    border: 0;
+}
+
+/*star rating from http://jsfiddle.net/as88425/qzuhdgxb/ */
+/* Hide radio */
+.rate > input {
+    display: none;
+}
+/* Order correctly by floating highest to the right */
+.rate > label {
+    float: right;
+}
+/* The star of the show */
+.rate > label:before {
+    display: inline-block;
+    font-size: 24px;
+    padding: 9px 3px;
+    margin: 0;
+    cursor: pointer;
+    font-family: FontAwesome;
+    content: "\f005 "; /* full star */
+}
+
+/* Half star trick */
+.rate .half:before {
+    content: "\f089 "; /* half star no outline */
+    position: absolute;
+    padding-right: 0;
+}
+/* Click + hover color */
+.rate input:checked ~ label { color: #ffff00; } /* color current and previous stars on checked */
+
+/* Hover highlights */
+.rate label:hover, .rate label:hover ~ label,  /* color previous stars on hover */
+.rate input:checked + label:hover, .rate input:checked ~ label:hover, /* highlight current and previous stars */
+.rate input:checked ~ label:hover ~ label, /* highlight previous selected stars for new rating */
+.rate label:hover ~ input:not(:checked) ~ label /* highlight previous selected stars */ { color: #e7e12d; } 
+
 /*--------------footer--------------*/ 
 .footer {
     position: absolute;
