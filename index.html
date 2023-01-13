@@ -25,16 +25,11 @@
     </div>
     <div class="modal" id="addBookModal">
         <div class="modalContent">
+            <p>Add new book</p>
             <form action="" class="inputs" id="newBookForm">
-                <label for="title">Title
-                    <input type="text" id="title" name="title" placeholder="Title" required minlength="2" maxlength="80">
-                </label>
-                <label for="author">Author
-                    <input type="text" id="author" name="author" placeholder="Author" required minlength="2" maxlength="60">
-                </label>
-                <label for="pages">Pages
-                    <input type="number" id="pages" name="pages" placeholder="Pages" required min="1" max="99999">
-                </label>
+                <input type="text" class="textInput" id="title" name="title" placeholder="Title" required minlength="2" maxlength="80">
+                <input type="text" class="textInput" id="author" name="author" placeholder="Author" required minlength="2" maxlength="60">
+                <input type="number" class="textInput" id="pages" name="pages" placeholder="Pages" required min="1" max="99999">
                 <label for="readStatus">Have you read it?
                     <input type="checkbox" id="readStatus" name="readStatus">
                 </label>
