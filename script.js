@@ -141,5 +141,6 @@ formElem.addEventListener("formdata", (e) => {
   i = 0;
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
   addBookToLibrary(newBook);
+  formElem.reset();
 })
 
