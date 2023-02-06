@@ -135,9 +135,6 @@ window.onclick = function modalToNone(event) {
   }
 };
 
-console.log("c");
-
-
 
 //  -----------------adding book from form-----------------
 const formElem = document.querySelector("#newBookForm");
