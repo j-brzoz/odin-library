@@ -2,15 +2,22 @@
 const myLibrary = [];
 
 // book constructor
-function Book(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
-  this.info = function info() {
-    if (status !== "on") return `${title} by ${author}, ${pages} pages, not read yet`;
-    return `${title} by ${author}, ${pages} pages, read already`;
-  };
+class Book {
+  constructor(title, author, pages, status){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
+
+  get info() {
+    return this.infoMethod();
+  }
+
+  infoMethod() {
+    if (this.status !== "on") return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`;
+    return `${this.title} by ${this.author}, ${this.pages} pages, read already`;
+  }
 }
 
 function makeStarInputs(i, stars) {
@@ -127,6 +134,8 @@ window.onclick = function modalToNone(event) {
     addBookModal.style.display = "none";
   }
 };
+
+console.log("c");
 
 
 
